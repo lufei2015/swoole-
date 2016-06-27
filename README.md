@@ -6,7 +6,9 @@ Swoole可以广泛应用于互联网、移动通信、企业软件、云计算�
 
 swoole wiki:
 http://wiki.swoole.com/wiki/page/1.html
+
 英文：
 https://rawgit.com/tchiotludo/swoole-ide-helper/english/docs/index.html
+
 官方成员给出的文档：
 https://linkeddestiny.gitbooks.io/easy-swoole/content/
