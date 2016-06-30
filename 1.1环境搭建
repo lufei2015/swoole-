@@ -1,4 +1,4 @@
-Linux环境下安装
+Linux环境下安装 (切换root)
 
 Linux操作系统通常都有自己的包管理软件（Ubuntu的apt-get，CentOS的yum，Mac OSX的HomeBrew等），因此一般情况下可以通过这些包管理软件直接
 安装PHP。但是这样安装的PHP不太适用于运行Swoole，因此本章将介绍如何通过源码编译安装。
@@ -59,3 +59,20 @@ PHP安装
   保存后，终端输入命令：
   source ~/.bashrc
   此时即可通过php --version查看php版本。
+  
+3.Swoole扩展安装
+  3.1 下载swoole
+    wget https://github.com/swoole/swoole-src/archive/swoole-1.8.7-alpha.tar.gz
+
+  3.2 解压
+     tar -zxvf swoole-1.8.7-alpha.tar.gz
+     
+  3.3 安装
+    cd swoole-src-swoole-1.8.7-alpha/
+    phpize
+    ./configure
+    make &&  make install
+    
+    安装完成后，进入/etc/php目录下，打开php.ini文件，在其中加上如下一句：
+    extension=swoole.so
+    随后在终端中输入命令php -m查看扩展安装情况。如果在列出的扩展中看到了swoole，则说明安装成功。
