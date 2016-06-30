@@ -56,6 +56,7 @@ PHP安装
   sudo cp php.ini-development /etc/php/php.ini
   另外，还需要将PHP的可执行目录添加到环境变量中。 使用Vim/Sublime打开~/.bashrc，在末尾添加如下内容：
   export PATH=/usr/local/php/bin:$PATH
+  export PATH=/usr/local/php/sbin:$PATH
   保存后，终端输入命令：
   source ~/.bashrc
   此时即可通过php --version查看php版本。
