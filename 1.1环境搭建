@@ -5,11 +5,18 @@ Linux操作系统通常都有自己的包管理软件（Ubuntu的apt-get，CentO
 
 想要编译安装PHP首先需要安装对应的编译工具。 Ubuntu上使用如下命令安装编译工具和依赖包：
 sudo apt-get install build-essential gcc g++ autoconf libiconv-hook-dev libmcrypt-dev libxml2-dev libmysqlclient-dev libcurl4-openssl-dev libjpeg8-dev libpng12-dev libfreetype6-dev
-
+sudo apt-get install openssl 
+sudo apt-get install libssl-dev
 
 PHP安装
-1.下载PHP http://php.net，找到PHP版本，使用wget下载。
+1.下载PHP http://php.net，找到PHP版本，使用wget下载,我下载的是php-5.6.23。
   wget *****
+  
 1.1解压下载包
-  tar -zxvf *****
+  tar -zxvf php-5.6.23.tar.gz 
+
 2.使用如下命令编译安装PHP：
+  cd php-5.6.23/
+  ./configure --prefix=/data/app_platform/php --with-config-file-path=/data/app_platform/php/etc --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers --enable-mbregex --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --without-pear   --with-gettext 
+  make &&  make install
+  mkdir -p /data/app_data/php/logs
