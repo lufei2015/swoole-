@@ -17,6 +17,45 @@ PHP安装
 
 2.使用如下命令编译安装PHP：
   cd php-5.6.23/
-  ./configure --prefix=/data/app_platform/php --with-config-file-path=/data/app_platform/php/etc --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers --enable-mbregex --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --without-pear   --with-gettext 
-  make &&  make install
-  mkdir -p /data/app_data/php/logs
+  /////////////./configure --prefix=/data/app_platform/php --with-config-file-path=/data/app_platform/php/etc --with-mysql=mysqlnd --with-mysqli=mysqlnd --with-pdo-mysql=mysqlnd --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir --enable-xml --disable-rpath --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers --enable-mbregex --enable-fpm --enable-mbstring --with-mcrypt --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-ldap-sasl --with-xmlrpc --enable-zip --enable-soap --without-pear   --with-gettext 
+
+  ./configure --prefix=/usr/local/php \
+--with-config-file-path=/etc/php \
+--enable-fpm \
+--enable-pcntl \
+--enable-mysqlnd \
+--enable-opcache \
+--enable-sockets \
+--enable-sysvmsg \
+--enable-sysvsem \
+--enable-sysvshm \
+--enable-shmop \
+--enable-zip \
+--enable-soap \
+--enable-xml \
+--enable-mbstring \
+--disable-rpath \
+--disable-debug \
+--disable-fileinfo \
+--with-mysql=mysqlnd \
+--with-mysqli=mysqlnd \
+--with-pdo-mysql=mysqlnd \
+--with-pcre-regex \
+--with-iconv \
+--with-zlib \
+--with-mcrypt \
+--with-gd \
+--with-openssl \
+--with-mhash \
+--with-xmlrpc \
+--with-curl \
+--with-imap-ssl
+
+  sudo make &&  make install
+  sudo mkdir /etc/php
+  sudo cp php.ini-development /etc/php/php.ini
+  另外，还需要将PHP的可执行目录添加到环境变量中。 使用Vim/Sublime打开~/.bashrc，在末尾添加如下内容：
+  export PATH=/usr/local/php/bin:$PATH
+  保存后，终端输入命令：
+  source ~/.bashrc
+  此时即可通过php --version查看php版本。
